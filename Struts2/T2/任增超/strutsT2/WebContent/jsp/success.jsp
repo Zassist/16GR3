@@ -7,13 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<center>
-		<form action="login">
-			用户名:<input type="text" name="uname"><br>
-			密码:<input type="password" name="upwd"><br>
-			<input type="submit" value="登录">
-		</form>
-		<p style="color: red">${error }</p>
-	</center>
+	欢迎你
 </body>
 </html>

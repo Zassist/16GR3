@@ -2,7 +2,7 @@
     <wb-module deploy-name="strutsT2">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="strutsT2"/>
         <property name="java-output-path" value="/strutsT2/build/classes"/>
+        <property name="context-root" value="strutsT2"/>
     </wb-module>
 </project-modules>

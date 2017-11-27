@@ -4,12 +4,13 @@
     "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	
-
-	<package name="default" extends="struts-default" namespace="">
-		<action name="login"  class="com.sacura.t2.action.LoginAction">
-			<result name="success">/success.jsp</result>
+	<package name="default" extends="struts-default">
+		<action name="login" class="com.sacura.t2.action.LoginAction">
+			<result name="success">/jsp/success.jsp</result>
 			<result name="error">/index.jsp</result>
+<!-- 			<interceptor-ref name = "myinterceptor"> -->
+<!-- 			<interceptor-ref name = "defaultStack"> -->
+<!-- 			</interceptor-ref> -->
 		</action>
 	</package>
 </struts>
