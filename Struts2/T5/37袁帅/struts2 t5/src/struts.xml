@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="default" namespace="/" extends="struts-default">
+		<global-results>
+			<result name="error">/jsp/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="error" />
+		</global-exception-mappings>
+	</package>
+	<!-- 包的管理 -->
+	<package name="UserManager" extends="struts-default">
+		<action name="addUser" class="com.msl.struts2.action.UserAction" method="addUser">
+			<result name="success" type="redirectAction">getAllUser</result>
+		</action>
+		<action name="deleteUser" class="com.msl.struts2.action.UserAction" method="deleteUser">
+			<result name="success" type="redirectAction">getAllUser</result>
+		</action>
+		<action name="getAllUser" class="com.msl.struts2.action.UserAction" method="getAllUser">
+			<result name="success">/main.jsp</result>
+		</action>
+		<action name="toUpdateUser" class="com.msl.struts2.action.UserAction" method="toUpdateUser">
+			<result name="success">/jsp/update.jsp</result>
+		</action>
+		<action name="updateUser" class="com.msl.struts2.action.UserAction" method="updateUser">
+			<result name="success" type="redirectAction">getAllUser</result>
+		</action>
+		
+
+	</package>
+</struts>
