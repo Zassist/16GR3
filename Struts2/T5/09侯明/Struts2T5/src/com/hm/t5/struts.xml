@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<!-- 启用自动动态方法的调用 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	
+<!-- 	<package name="struts2" namespace="/jsp" extends="struts-default"> -->
+	<package name="struts2" namespace="/skip" extends="struts-default" strict-method-invocation="false">
+	
+<!-- 	<package name="struts2" extends="struts-default"> -->
+		<!-- 定义全局result -->
+		<global-results>
+			<!-- 定义名为exception的全局result -->
+			<result name="error">/jsp/error.jsp</result>
+		</global-results>
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		<!-- 定义全局异常映射 -->
+		<global-exception-mappings>
+			<!-- 捕捉到Exception异常(所有异常)时跳转到exception所命名的视图上 -->
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+		
+		<!-- <action name="*User" class="com.cyh.test.action.UserAction" method="{1}"> -->
+		<!-- <result name="toAll" type="redirectAction">getAllUser</result> -->
+		<!-- <result name="SUCCESS">/jsp/success.jsp</result> -->
+		<!-- </action> -->
+		
+		<action name="user_*" class="com.cyh.test.action.UserAction" method="{1}">
+			<result name="success">/jsp/success.jsp</result>
+			<result name="toAll" type="redirectAction">user_getAllUser</result>
+			<result name="toUpdate">/jsp/updateUser.jsp</result>
+		</action>
+		
+<!-- 		<action name="user" class="com.cyh.test.action.UserAction"> -->
+<!-- 			<result name="success">/jsp/success.jsp</result> -->
+<!-- 			<result name="toAll" type="redirectAction">user!getAllUser</result> -->
+<!-- 			<result name="toUpdate">/jsp/updateUser.jsp</result> -->
+<!-- 			<allowed-methods>regex:.*</allowed-methods> -->
+	</package>
+	
+</struts> 
+	<!-- 全局允许的方法 -->
