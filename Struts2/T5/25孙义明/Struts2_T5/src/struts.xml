@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	<package name="default" namespace="/" strict-method-invocation="false"
+		extends="struts-default">
+		<global-results>
+			<result name="exception">/jsp/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="exception" />
+		</global-exception-mappings>
+		<action name="*_user" class="com.qhit.wjw.action.ActionUser"
+			method="{1}">
+			<result name="success" type="redirectAction">list_user</result>
+			<result name="allUser">/jsp/listuser.jsp</result>
+			<result name="User">/jsp/updateuaer.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+		</action>
+	</package>
+</struts>    
