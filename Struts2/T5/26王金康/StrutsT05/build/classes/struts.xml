@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<!-- 启用自动动态方法的调用 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<!-- 全局配置 -->
+    <package name="default" namespace="/" extends="struts-default">
+        <global-results>
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+        </global-results>
+        <!-- <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings> -->
+    </package>
+     <!-- 模块化管理包 -->
+	<package name="usermanager" extends="default">
+		
+		<!-- <action name="add" class="com.grs.wjk.action.UserAction" method="add">
+    		<result name="add" type="redirectAction">getAll</result>
+    	</action>
+    	<action name="delete" class="com.grs.wjk.action.UserAction" method="delete">
+    		<result name="delete" type="redirectAction">getAll</result>
+    	</action>
+    	<action name="toUpdate" class="com.grs.wjk.action.UserAction" method="toUpdate">
+    		<result name="toUpdate">/jsp/update.jsp</result>
+    	</action>
+    	<action name="update" class="com.grs.wjk.action.UserAction" method="update">
+    		<result name="update" type="redirectAction">getAll</result>
+    	</action>
+    	<action name="getAll" class="com.grs.wjk.action.UserAction" method="getAll">
+    		<result name="success">listUser.jsp</result>
+    	</action>  -->
+		
+		<!-- 2.5需要再加上allowed-methods的配置 -->
+		<!-- <global-allowed-methods>User:.*</global-allowed-methods> -->
+		<action name="*User" class="com.grs.wjk.action.UserAction" method="{1}">
+    		<result name="listUser">listUser.jsp</result>
+    		<result name="toAll" type="redirectAction">getAllUser</result>
+    		<result name="toUpdate">/jsp/updUser.jsp</result>
+    		<allowed-methods>getAll,add,toupdate,update</allowed-methods>
+    	</action>
+    	
+    	<!-- 2.5需要再加上global-allowed-methods的配置 -->
+    	<!-- 
+    	<global-allowed-methods>getAll</global-allowed-methods>
+    	<action name="user" class="com.grs.wjk.action.UserAction">
+    		<result name="listUser">listUser.jsp</result>
+    		<result name="toAll" type="redirectAction">user!getAll</result>
+    		<result name="toUpdate">/jsp/updateUser.jsp</result>
+    	</action>
+    	 -->
+	</package> 
+</struts>
