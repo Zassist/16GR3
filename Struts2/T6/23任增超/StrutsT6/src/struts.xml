@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 是否自动加载国际化资源文件  -->
+    <constant name="struts.i18n.reload" value="true" />
+     <!-- 国际化资源文件名称 -->
+    <constant name="struts.custom.i18n.resources" value="locale" />
+	<!-- 全局配置 -->
+    <package name="default" namespace="/" extends="struts-default">
+<!--         <global-results> -->
+<!--             <result name="error">jsp/error.jsp</result> -->
+<!--         </global-results> -->
+<!--         <global-exception-mappings> -->
+<!--             <exception-mapping exception="java.lang.Exception" result="error"/> -->
+<!--         </global-exception-mappings> -->
+        
+        
+        
+    </package>
+    <!-- 模块化管理包 -->
+	<package name="userManeger" extends="default">
+		<interceptors>
+			<interceptor-stack name="mystack">
+				<interceptor-ref name="defaultStack">
+					<param name="validation.excludeMethods">execute,Login</param>
+					<param name="workflow.excludeMethods">execute,Login</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="mystack"></default-interceptor-ref>
+		<action name="execute" class="com.sacura.t6.action.UserAction">  
+            <result name="success">/jsp/login.jsp</result>  
+        </action>  
+		<action name="Login" class="com.sacura.t6.action.UserAction" method="Login">  
+            <result name="loginSuccess">/jsp/main.jsp</result>  
+        </action> 
+	</package>
+
+</struts>
