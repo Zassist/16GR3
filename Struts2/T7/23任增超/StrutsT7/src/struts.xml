@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 启用自动动态方法的调用 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+     <!-- 上传文件大小限制设置 -->
+    <constant name="struts.multipart.maxSize" value="10240000" />
+	<!-- 全局配置 -->
+    <package name="default" namespace="/" extends="struts-default">
+<!--         <global-results> -->
+<!--             <result name="error">/jsp/error.jsp</result> -->
+<!--         </global-results> -->
+
+<!--         <global-exception-mappings> -->
+<!--             <exception-mapping exception="java.lang.Exception" result="error"/> -->
+<!--         </global-exception-mappings> -->
+    </package>
+    <package name="filemanger" extends="default">
+    	<action name="file"  class="com.qhit.lh.gr3.sacura.action.UploadAction">
+    		<result name="uploadSucccess">allfile.jsp</result>
+    		<result name="input">index.jsp</result>
+    		<interceptor-ref name="defaultStack">
+<!--     			配置允许文件上传类型 -->
+                 <param name="fileUpload.allowedExtensions">.txt,.jpg,.doc,.zip</param>
+<!--                  配置允许文件上传大小最大值 -->
+                 <param name="fileUpload.maximumSize">5120000</param>
+    		</interceptor-ref>
+    	</action>
+    </package>
+    </struts>
