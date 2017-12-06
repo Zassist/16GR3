@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>My JSP 'UpdateUser.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -23,8 +24,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <%
-  response.sendRedirect("user!getAll"); 
-  %>
+    <s:form action="user!update" method="post"> 
+    <s:hidden name="userbean.id"></s:hidden>
+    <s:textfield label="用户名" name="userbean.uname"></s:textfield>
+    <s:password label="密码" naeme="userbean.upwd"></s:password>
+    <s:radio label="性别" list="#{'1':'男','2':'女'}" name="userbean.sex"></s:radio>
+    <s:textfield label="生日" name="userbean.birthday"></s:textfield>
+   	<s:radio label="启用" list="#{'0':'是','1':'否'}" required="true"  name="userbean.enable"></s:radio>
+  		<s:submit value="修改"></s:submit>
+    
+    </s:form>
   </body>
 </html>

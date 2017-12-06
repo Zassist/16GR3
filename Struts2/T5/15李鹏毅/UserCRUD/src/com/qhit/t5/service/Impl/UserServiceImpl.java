@@ -26,9 +26,11 @@ public class UserServiceImpl implements UserService {
 		return userDao.delUser(id);
 	}
 	@Override
-	public UserBean getUserbyId(int id) {
+	public UserBean getUserbyId(int id) throws Exception {
 		// TODO Auto-generated method stub
 		return userDao.getUserbyId(id);
 	}
-
+	public int updateUser(UserBean userbean) throws Exception{
+		return userDao.updateUser(userbean);
+	}
 }

@@ -20,7 +20,12 @@ public class UserAction extends ActionSupport {
 	 */
 	
 	public String toUpdate(){
-		userbean=userService.getUserbyId(userbean.getId());
+		try {
+			userService.getUserbyId(userbean.getId());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return "update";
 	}
 	public String add(){
@@ -45,8 +50,14 @@ public class UserAction extends ActionSupport {
 	}
 	
 	
-	public String update (){
+	public String update(){
 		if(userbean!=null){
+			try {
+				userService.updateUser(userbean);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return "tolist";
 	}

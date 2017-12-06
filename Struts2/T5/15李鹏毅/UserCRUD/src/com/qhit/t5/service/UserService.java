@@ -21,5 +21,7 @@ public interface UserService {
 	
 	public int delUser(int id) throws Exception;
 	
-	public UserBean getUserbyId(int id);
+	public UserBean getUserbyId(int id) throws Exception;
+	
+	public int updateUser(UserBean userbean) throws Exception;
 }

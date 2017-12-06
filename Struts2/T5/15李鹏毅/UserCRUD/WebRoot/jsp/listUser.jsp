@@ -35,8 +35,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<td><s:if test ='"M"'>男</s:if><s:else>女</s:else></td>
   	<td><s:property value="#user.birthday" /></td>
   	<td><s:property value="#user.enable" /></td>
-  	<td><s:a href="/">修改</s:a></td>
-  	<td><s:a href="del?user.id=${userbean.id }">删除</s:a></td>
+  	<td><s:a href="user!toUpdate?userbean.id=%{#user.id}">修改</s:a></td>
+  	<td><s:a href="user!delete?userbean.id=%{#user.id}">删除</s:a></td>
 	  </tr>
 	  </s:iterator>
 	  </tr>
