@@ -23,12 +23,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-   上传者: ${username } <br />
+上传者: ${username } <br />
 文件名: ${uploadFileFileName } <br />
 文件类型:　${uploadFileContentType } <br />
 
 <br />
-<a href="/T7/upload/${uploadFileFileName }">${uploadFileFileName }</a>
+<a href="/StrutsT07/upload/${uploadFileFileName }">${uploadFileFileName }</a>
 
 </body>
 </html>
