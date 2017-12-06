@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="Action" extends="struts-default">
+    
+    <!-- 定义拦截器 -->
+    <interceptors>
+    	<interceptor name="MyInterceptor" class="Interceptor.MyInterceptor"></interceptor>
+    	<!-- 增加了对权限检查拦截器的定义，别名为CheckRight -->
+    	<interceptor name="CheckRight" class="Interceptor.CheckRightInterceptor"></interceptor>
+    	<interceptor name="CheckCount" class="Interceptor.CheckCount"></interceptor>
+    </interceptors>
+    
+      <action name="HelloWorld" class="Action.HelloWorldAction">
+        <!-- 为HelloWorld组件引用我们自定义的拦截器 -->
+      	<interceptor-ref name="MyInterceptor"></interceptor-ref>
+      	<!--配置拦截器-->
+      	<interceptor-ref name="timer" ></interceptor-ref>
+        <result name="success">/success.jsp</result>
+      </action>
+      
+      
+    <!-- 配置其他Action组件 -->
+    <action name="hello" class="Action.HelloAction">
+        <!--配置拦截器-->
+        <interceptor-ref name="timer" ></interceptor-ref>
+        <!-- 对受控的资源（这里是HelloAction）引用了CheckRight权限检查拦截器 -->
+        <interceptor-ref name="CheckRight"></interceptor-ref>
+      	<interceptor-ref name="defaultStack"></interceptor-ref>
+      	<!-- 验证用户名长度是否适合 -->
+      	<interceptor-ref name="CheckCount"></interceptor-ref>
+      <result name="success">/success.jsp</result>
+      <!-- 对权限检查拦截器返回"login"结果别名进行配置，指向登录页面 -->
+      <result name="login">/login.jsp</result>
+      <result name="hello">/hello.jsp</result>
+    </action>
+    
+    <!-- 登录验证 -->
+    <action name="login" class="Action.LoginAction">
+    	<result name="success">/main.jsp</result>
+    	<result name="input">/login.jsp</result>
+    </action>
+    
+    
+    
+    </package>
+   
+    
+
+</struts>

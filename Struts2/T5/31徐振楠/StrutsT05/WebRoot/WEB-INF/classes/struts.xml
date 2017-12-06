@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+   <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<!-- 全局配置 -->
+    <package name="default" namespace="/" extends="struts-default">
+
+        <global-results>
+            <result name="error">jsp/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+    </package>
+    <package name="user" namespace="/" extends="default">
+    	<action name="addUser" class="com.qhit.xzn.action.UserAction" method="addUser">
+    		<result name="success" type="redirectAction">allUser</result>
+    	</action>
+    	
+    	<action name="del"  class="com.qhit.xzn.action.UserAction" method="delUser">
+    		<result name="success" type="redirectAction">allUser</result>
+    	</action>
+    	<action name="toupdUser"  class="com.qhit.xzn.action.UserAction" method="toupdUser">
+    		<result name="success">jsp/upd.jsp</result>
+    	</action>
+    	<action name="updUser"  class="com.qhit.xzn.action.UserAction" method="updUser">
+    		<result name="success" type="redirectAction">allUser</result>
+    	</action>
+    	<action name="allUser"  class="com.qhit.xzn.action.UserAction" method="allUser">
+    		<result name="success">/all.jsp</result>
+    	</action> 
+    	    </package>
+</struts>

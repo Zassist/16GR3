@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.multipart.maxSize" value="10240000" />
+	<package name="filepackage" extends="struts-default" namespace="/"
+		strict-method-invocation="true">
+		<action name="file_*" class="com.qhit.lh.gr3.cyh.action.FileAction">
+			<interceptor-ref name="defaultStack">
+				<param name="file Upload.allowedExtensions">.txt,.zip,.jps,.ppt,.doc,.png</param>
+				<param name="file Upload.MaximumSize">5242880</param>
+			</interceptor-ref>
+			<result name="success">/jsp/success.jsp</result>
+			<result name="input">index.jsp</result>
+			<result name="down" type="stream">
+				<param name="contentType">application/o ctet-stream</param>
+				<param name="inputName">downloadis</param>
+				<param name="contentDisposition">filename="${downloadname}"</param>
+			</result>
+		</action>
+	</package>
+</struts>

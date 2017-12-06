@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 启用自动动态方法的调用 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<!-- 全局配置 -->
+    <package name="default" namespace="/" extends="struts-default">
+
+        <global-results>
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+    </package>
+    <!-- 模块化管理包 -->
+    <package name="usermanager" extends="default">
+    	<!-- <action name="add" class="com.jay.t5.action.UserAction" method="add">
+    		添加用户成功，先查询新的用户列表数据，然后进入显示页面
+    		注意:在result配置跳转到Action请求时，需要添加type属性值
+    		<result name="success" type="redirectAction">getAll</result>
+    	</action>
+    	<action name="delete" class="com.jay.t5.action.UserAction" method="delete">
+    		<result name="success" type="redirectAction">getAll</result>
+    	</action>
+    	<action name="toUpdate" class="com.jay.t5.action.UserAction" method="toUpdate">
+    		<result name="success">/jsp/updateUser.jsp</result>
+    	</action>
+    	<action name="update" class="com.jay.t5.action.UserAction" method="update">
+    		<result name="success" type="redirectAction">getAll</result>
+    	</action>
+    	<action name="getAll" class="com.jay.t5.action.UserAction" method="getAll">
+    		<result name="success">index.jsp</result>
+    	</action> -->
+    	
+    	<!-- <action name="*User" class="com.jay.t5.action.UserAction" method="{1}">
+    		<result name="listUser">index.jsp</result>
+    		<result name="toAll" type="redirectAction">getAllUser</result>
+    		<result name="toUpdate">/jsp/updateUser.jsp</result>
+    	</action> -->
+    	
+    	<action name="user" class="com.jay.t5.action.UserAction">
+    		<result name="listUser">index.jsp</result>
+    		<result name="toAll" type="redirectAction">user!getAll</result>
+    		<result name="toUpdate">/jsp/updateUser.jsp</result>
+    	</action>
+    </package>
+</struts>

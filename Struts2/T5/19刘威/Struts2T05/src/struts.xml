@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+
+<struts>
+	<!-- 启用自动动态方法的调用 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<!-- 全局配置 -->
+    <package name="default" namespace="/" extends="struts-default">
+
+       <!--  <global-results>
+            <result name="error">/jsp/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings> -->
+    </package>
+    <!-- 模块化管理包 -->
+    <package name="usermanager" extends="default">
+    	 <action name="add" class="com.liu.Struts.action.UserAction" method="add">
+    		<result name="add" type="redirectAction">getAll</result>
+    	</action>
+    	<action name="delete" class="com.liu.Struts.action.UserAction" method="delete">
+    		<result name="delete" type="redirectAction">getAll</result>
+    	</action>
+    	<action name="toUpdate" class="com.liu.Struts.action.UserAction" method="toUpdate">
+    		<result name="toupdate">/jsp/update.jsp</result>
+    	</action>
+    	<action name="update" class="com.liu.Struts.action.UserAction" method="update">
+    		<result name="update" type="redirectAction">getAll</result>
+    	</action>
+    	<action name="getAll" class="com.liu.Struts.action.UserAction" method="getAll">
+    		<result name="success">/jsp/allUser.jsp</result>
+    	</action> 
+    </package>
+</struts>

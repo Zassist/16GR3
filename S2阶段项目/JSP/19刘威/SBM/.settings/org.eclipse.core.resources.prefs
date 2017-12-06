@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//WebRoot/index.jsp=UTF-8
+encoding//WebRoot/jsp/providerinfo.jsp=UTF-8
+encoding//src/com/liuwei/sbm/conmon/filter/Sbmfilter.java=UTF-8
+encoding//src/com/liuwei/sbm/conmon/listener/ApplicationListener.java=UTF-8
+encoding//src/com/liuwei/sbm/conmon/listener/UserExitListner.java=UTF-8
+encoding//src/com/liuwei/sbm/provider/bean/Provider.java=UTF-8
+encoding//src/com/liuwei/sbm/user/servlet/UserServlet.java=gbk
+encoding/<project>=UTF-8

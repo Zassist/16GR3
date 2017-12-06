@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="StrutsT3" extends="struts-default">
+	<action name="t3" class="com.hm.t3.action">
+		<result name="success">jsp/success.jsp</result>
+		</action>
+		<action name="s" class="com.hm.t3.action">
+		<result name="success">jsp/success.jsp</result>
+		</action>
+	</package>
+</struts>

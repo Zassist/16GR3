@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant> 
+	<package name="userpackage"  extends="struts-default">
+		<action name="user" class="com.qhit.t5.action.UserAction">
+			<result name="list">/jsp/listUser.jsp</result>
+			<result name="tolist" type="redirectAction">user!getAll</result>
+			<result name="update">/jsp/UpdateUser.jsp</result>
+		</action>
+	</package>
+</struts>
+	
