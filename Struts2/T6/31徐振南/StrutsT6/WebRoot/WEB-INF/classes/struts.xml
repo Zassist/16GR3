@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>	
+	<package name="demo" extends="struts-default">
+		<!-- 动态方法映射URL :  action名称+!+ 方法名   -->
+		<action name="empAction" class="com.tsing.action.EmpAction">
+			<result name="add_emp" type="redirectAction">empAction!listEmp.action</result>		
+			<result name="to_addemp">addemp.jsp</result>
+			<result name="list_emp">listemp.jsp</result>
+			<result name="input">addemp.jsp</result>
+			<result name="to_updateemp">updateemp.jsp</result>
+			<result name="update_emp" type="redirectAction">empAction!listEmp.action</result>	
+			<result name="del_emp" type="redirectAction">empAction!listEmp.action</result>	
+		</action>
+		
+	
+	</package>
+
+</struts>

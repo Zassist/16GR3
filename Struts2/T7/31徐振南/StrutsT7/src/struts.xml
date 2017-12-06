@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+    <struts>
+    <package name="def" extends="default-struts" namespace="/">
+    <action name="filter" class="com.qhit.lh.simp.T7.action.FilterAction" method="upload" >
+    <interceptor-ref name="defaultStack"></interceptor-ref>
+ 	<interceptor-ref name="fileUpload">			
+			<!-- 允许图片类型 -->
+			<param name="allowedTypes">image/bmp,image/jpeg,image/gif,image/jpg,image/png</param>
+			<!--允许上传的文件大小 5M  -->
+			<param name="maximumSize">5364604</param>			
+		</interceptor-ref>
+		
+	</action>
+    </package>
+    </struts>
+    	
