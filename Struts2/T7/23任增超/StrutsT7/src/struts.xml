@@ -9,13 +9,13 @@
     <constant name="struts.multipart.maxSize" value="10240000" />
 	<!-- 全局配置 -->
     <package name="default" namespace="/" extends="struts-default">
-<!--         <global-results> -->
-<!--             <result name="error">/jsp/error.jsp</result> -->
-<!--         </global-results> -->
+        <global-results>
+            <result name="error">/jsp/error.jsp</result>
+        </global-results>
 
-<!--         <global-exception-mappings> -->
-<!--             <exception-mapping exception="java.lang.Exception" result="error"/> -->
-<!--         </global-exception-mappings> -->
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
     </package>
     <package name="filemanger" extends="default">
     	<action name="file"  class="com.qhit.lh.gr3.sacura.action.UploadAction">
